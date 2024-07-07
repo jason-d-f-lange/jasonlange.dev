@@ -1,6 +1,7 @@
 'use client';
 
 import About from '@/components/about';
+import Resume from '@/components/resume/resume';
 import styled from '@emotion/styled';
 
 const BackgroundPattern = styled.div({
@@ -26,7 +27,7 @@ const Content = styled.main({
 });
 
 const Column = styled.div({
-  padding: 60,
+  padding: '60px 12px',
   width: '100%',
 });
 
@@ -39,7 +40,9 @@ export default function Home() {
         <Column>
           <About />
         </Column>
-        <Column />
+        <Column>
+          <Resume />
+        </Column>
       </Content>
     </>
   );

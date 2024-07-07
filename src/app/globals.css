@@ -5,6 +5,8 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  --off-color: #39c270;
+
   font-family: Inter;
   font-size: 16px;
   font-weight: var(--font-weight-semibold);
@@ -54,6 +56,16 @@ h1 {
   font-weight: var(--font-weight-bold);
 }
 
-h3 {
+h2 {
   font-size: 20px;
+  font-weight: var(--font-weight-semibold);
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: var(--font-weight-semibold);
+}
+
+ul {
+  list-style-position: inside;
 }

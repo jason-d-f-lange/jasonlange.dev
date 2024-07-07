@@ -1,4 +1,4 @@
-import Spacer from "./layout/spacer";
+import Spacer from "./shared/spacer";
 
 export default function About() {
   return (
