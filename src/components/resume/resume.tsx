@@ -5,8 +5,8 @@ import { resumeItems } from './resume-items';
 const Section = styled.section({
   display: 'flex',
   flexDirection: 'column',
-  padding: '0 20px',
   gap: 24,
+  padding: 'var(--section-inner-padding)',
 });
 
 export default function Resume() {

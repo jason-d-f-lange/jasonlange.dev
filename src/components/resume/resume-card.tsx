@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Chip from '../shared/chip';
 import Spacer from '../shared/spacer';
-import { ResumeItem } from './types';
+import { ResumeItem } from './resume-items';
 
 const Card = styled.article({
   width: '100%',
@@ -19,12 +19,21 @@ const logoSize = 64;
 const Logo = styled.img({
   width: logoSize,
   height: logoSize,
+  border: '1px solid white',
+  borderRadius: '100%',
 });
 
 const TitleLine = styled.div({
   display: 'flex',
   width: '100%',
   justifyContent: 'space-between',
+});
+
+const Timeframe = styled.span({
+  fontSize: 16,
+  fontWeight: 'var(--font-weight-semibold)',
+  color: 'var(--secondary-color)',
+  textTransform: 'uppercase',
 });
 
 const Skills = styled.div({
@@ -46,11 +55,9 @@ export default function ResumeCard({ item }: { item: ResumeItem }) {
         <div style={{ width: '100%' }}>
           <TitleLine>
             <h3>{company}</h3>
-            <span style={{ fontSize: 16, color: 'var(--off-color)' }}>
-              {timeframe}
-            </span>
+            <Timeframe>{timeframe}</Timeframe>
           </TitleLine>
-          <p>{role}</p>
+          <p style={{ fontWeight: 'var(--font-weight-semibold)' }}>{role}</p>
           <Spacer height={8} />
           <ul>
             {dotPoints.map((point, index) => (

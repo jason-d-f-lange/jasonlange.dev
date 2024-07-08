@@ -2,6 +2,8 @@
 
 import About from '@/components/about';
 import Resume from '@/components/resume/resume';
+import Spacer from '@/components/shared/spacer';
+import Skills from '@/components/skills/skills';
 import styled from '@emotion/styled';
 
 const BackgroundPattern = styled.div({
@@ -17,18 +19,24 @@ const BackgroundPattern = styled.div({
 
 const Content = styled.main({
   height: '100vh',
-  // width: ['100vw', 'var(--max-width)'],
   width: 'var(--max-width)',
   zIndex: -1,
   display: 'flex',
   flexDirection: 'row',
+  gap: 'var(--section-outer-padding)',
   minHeight: '100vh',
   margin: '0 auto',
 });
 
 const Column = styled.div({
-  padding: '60px 12px',
   width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+const Section = styled.div({
+  borderRadius: 10,
+  background: 'rgba(52, 52, 52, 0.33)',
 });
 
 export default function Home() {
@@ -39,9 +47,19 @@ export default function Home() {
       <Content>
         <Column>
           <About />
+          <Spacer height={20} />
+          <Section>
+            <Skills />
+          </Section>
+          <Spacer height={20} />
+          <span style={{ fontSize: 14, fontWeight: 'normal' }}>
+            Built with Next.js and React, hosted on Vercel.
+          </span>
         </Column>
         <Column>
-          <Resume />
+          <Section>
+            <Resume />
+          </Section>
         </Column>
       </Content>
     </>

@@ -7,4 +7,9 @@ export default styled.span({
   padding: '4px 12px',
   whiteSpace: 'nowrap',
   fontSize: 12,
+  fontWeight: 'var(--font-weight-semibold)',
+  '&:hover': {
+    color: 'var(--secondary-color)',
+    background: 'white',
+  },
 });

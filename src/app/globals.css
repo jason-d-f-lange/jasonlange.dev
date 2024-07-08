@@ -5,11 +5,11 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
-  --off-color: #39c270;
+  --primary-color: white;
+  --secondary-color: #39c270;
 
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: var(--font-weight-semibold);
+  --section-outer-padding: 60px;
+  --section-inner-padding: 24px;
 }
 
 * {
@@ -25,25 +25,11 @@ body {
 }
 
 body {
-  color: white;
-  /* background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
+  color: var(--primary-color);
   background: #27262d;
-
-  /* background-color: black;
-  background-image: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0.1) 25%,
-    transparent 25%,
-    transparent 75%,
-    rgba(255, 255, 255, 0.1) 75%,
-    rgba(255, 255, 255, 0.1)
-  );
-  background-size: 40px 40px; */
+  font-family: Inter;
+  font-size: 16px;
+  padding: var(--section-outer-padding);
 }
 
 a {
