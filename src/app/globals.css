@@ -51,7 +51,3 @@ h3 {
   font-size: 18px;
   font-weight: var(--font-weight-semibold);
 }
-
-ul {
-  list-style-position: inside;
-}

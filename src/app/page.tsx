@@ -4,6 +4,8 @@ import About from '@/components/about';
 import Resume from '@/components/resume/resume';
 import Spacer from '@/components/shared/spacer';
 import Skills from '@/components/skills/skills';
+import { testimonialItems } from '@/components/testimonials/testimonial-items';
+import Testimonials from '@/components/testimonials/testimonials';
 import styled from '@emotion/styled';
 
 const BackgroundPattern = styled.div({
@@ -18,13 +20,11 @@ const BackgroundPattern = styled.div({
 });
 
 const Content = styled.main({
-  height: '100vh',
   width: 'var(--max-width)',
   zIndex: -1,
   display: 'flex',
   flexDirection: 'row',
   gap: 'var(--section-outer-padding)',
-  minHeight: '100vh',
   margin: '0 auto',
 });
 
@@ -47,6 +47,10 @@ export default function Home() {
       <Content>
         <Column>
           <About />
+          <Spacer height={20} />
+          <Section style={{ padding: 'var(--section-inner-padding)' }}>
+            <Testimonials testimonials={testimonialItems} />
+          </Section>
           <Spacer height={20} />
           <Section>
             <Skills />

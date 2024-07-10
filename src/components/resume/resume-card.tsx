@@ -19,8 +19,8 @@ const logoSize = 64;
 const Logo = styled.img({
   width: logoSize,
   height: logoSize,
-  border: '1px solid white',
   borderRadius: '100%',
+  boxShadow: '0px 1px 2px 0px #9d9d9d',
 });
 
 const TitleLine = styled.div({
@@ -59,7 +59,7 @@ export default function ResumeCard({ item }: { item: ResumeItem }) {
           </TitleLine>
           <p style={{ fontWeight: 'var(--font-weight-semibold)' }}>{role}</p>
           <Spacer height={8} />
-          <ul>
+          <ul style={{ listStylePosition: 'inside' }}>
             {dotPoints.map((point, index) => (
               <li key={index}>{point}</li>
             ))}

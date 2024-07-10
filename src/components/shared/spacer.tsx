@@ -3,7 +3,7 @@
 import styled from '@emotion/styled';
 
 interface Props {
-  height?: number;
+  height?: number | string;
 }
 
 export default styled.div(({ height = 12 }: Props) => ({
