@@ -29,7 +29,9 @@ const Mask = styled(motion.div)({
 });
 
 export default function Background() {
-  const deviceHasPointer = window.matchMedia('(pointer: fine)').matches;
+  const deviceHasPointer =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(pointer: fine)').matches;
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { x, y } = mousePosition;
