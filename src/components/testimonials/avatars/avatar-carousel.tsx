@@ -88,7 +88,7 @@ export default function AvatarCarousel({ testimonials, onChange }: Props) {
             <motion.div
               key={testimonial.name}
               layout
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.8, type: 'spring' }}
               style={{
                 marginLeft:
                   index !== testimonials.length - 1 ? overlapAmount : 0,
