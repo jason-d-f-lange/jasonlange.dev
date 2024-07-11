@@ -1,10 +1,6 @@
-'use client';
-
 import styled from '@emotion/styled';
 
-interface Props {
-  height?: number | string;
-}
+type Props = Pick<React.CSSProperties, 'height'>;
 
 export default styled.div(({ height = 12 }: Props) => ({
   height,

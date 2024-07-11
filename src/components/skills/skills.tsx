@@ -1,13 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import { Stack } from '../layout/stack';
 import { skillCategories } from './skills-items';
-
-const Category = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 8,
-  padding: 'var(--section-inner-padding) 0',
-});
 
 const Heading = styled.h2({
   color: 'var(--secondary-color)',
@@ -17,8 +11,9 @@ const Heading = styled.h2({
 const Row = styled.div({
   width: '100%',
   padding: '10px var(--section-inner-padding)',
-  whiteSpace: 'pre',
+  whiteSpace: 'pre-wrap',
   fontWeight: 'normal',
+  margin: '-4px 0',
   '&:hover': {
     background: 'white',
     color: 'black',
@@ -27,7 +22,7 @@ const Row = styled.div({
 
 export default function Skills() {
   return (
-    <Category>
+    <Stack style={{ padding: 'var(--section-inner-padding) 0' }}>
       {skillCategories.map((category) => (
         <React.Fragment key={category.title}>
           <Heading>{category.title}</Heading>
@@ -36,6 +31,6 @@ export default function Skills() {
           ))}
         </React.Fragment>
       ))}
-    </Category>
+    </Stack>
   );
 }

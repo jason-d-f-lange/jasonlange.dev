@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
-import Spacer from './shared/spacer';
+import Spacer from './layout/spacer';
+import { HorizontalStack } from './layout/stack';
 
 const iconSize = 40;
 
-const Icons = styled.div({
-  display: 'flex',
-  gap: 6,
+const Icons = styled(HorizontalStack)({
   '& svg': {
     fill: 'var(--primary-color)',
     width: iconSize,

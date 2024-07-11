@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import Spacer from '../shared/spacer';
+import Spacer from '../layout/spacer';
 import AvatarCarousel from './avatars/avatar-carousel';
+import Quote from './quote';
 import { TestimonialItem } from './testimonial-items';
 
 interface Props {
@@ -25,7 +26,7 @@ export default function Testimonials({ testimonials }: Props) {
         {selectedTestimonial.name} • {selectedTestimonial.relationship}
       </p>
       <Spacer />
-      <blockquote>{selectedTestimonial.quote}</blockquote>
+      <Quote key={selectedTestimonial.quote}>{selectedTestimonial.quote}</Quote>
     </>
   );
 }
