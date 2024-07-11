@@ -21,6 +21,7 @@ const Mask = styled(motion.div)({
   position: 'fixed',
   height: '100%',
   width: '100%',
+  maskPosition: '-1000px -1000px',
   maskImage: "url('/mask.svg')",
   maskRepeat: 'no-repeat',
   maskSize,
