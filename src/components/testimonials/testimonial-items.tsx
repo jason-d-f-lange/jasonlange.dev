@@ -1,5 +1,3 @@
-import { faker } from '@faker-js/faker';
-
 export interface TestimonialItem {
   avatar: string;
   name: string;
@@ -7,8 +5,6 @@ export interface TestimonialItem {
   relationship: string;
   quote: string;
 }
-
-faker.seed(42);
 
 export const testimonialItems: TestimonialItem[] = [
   {
