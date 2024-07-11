@@ -96,7 +96,7 @@ export default function AvatarCarousel({ testimonials, onChange }: Props) {
               }}
             >
               <Avatar
-                src={testimonial.avatar}
+                src={`/avatars/${testimonial.avatar}`}
                 alt={`avatar for ${testimonial.name}`}
                 onClick={() => handleAvatarClick(testimonial)}
               />

@@ -1,15 +1,14 @@
 import styled from '@emotion/styled';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
 const TwoLineQuote = styled.blockquote<{
-  limitToTwoLines: boolean;
-  cursor: 'pointer' | 'initial';
-}>(({ limitToTwoLines, cursor }) => ({
-  cursor,
+  collapse: boolean;
+}>(({ collapse }) => ({
+  cursor: 'pointer',
   display: '-webkit-box',
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
-  WebkitLineClamp: limitToTwoLines ? 2 : 'none',
+  WebkitLineClamp: collapse ? 2 : 'none',
   minHeight: 40,
 }));
 
@@ -18,35 +17,13 @@ interface Props {
 }
 
 export default function Quote({ children }: Props) {
-  const [limitToTwoLines, setLimitToTwoLines] = useState(true);
-  const [isMoreThanTwoLines, setIsMoreThanTwoLines] = useState(false);
-  const quoteRef = useRef<HTMLQuoteElement>(null);
-
-  useEffect(() => {
-    setLimitToTwoLines(true);
-
-    const checkOverflow = () => {
-      const current = quoteRef.current;
-
-      if (current)
-        setIsMoreThanTwoLines(current.scrollHeight > current.clientHeight);
-    };
-
-    checkOverflow();
-
-    window.addEventListener('resize', checkOverflow);
-
-    return () => window.removeEventListener('resize', checkOverflow);
-  }, [children]);
-
-  const toggleLimitToTwoLines = () => setLimitToTwoLines((prev) => !prev);
+  const [collapse, setCollapse] = useState(true);
 
   return (
     <TwoLineQuote
-      ref={quoteRef}
-      limitToTwoLines={limitToTwoLines}
-      cursor={isMoreThanTwoLines ? 'pointer' : 'initial'}
-      onClick={toggleLimitToTwoLines}
+      collapse={collapse}
+      data-test-collapse={collapse}
+      onClick={() => setCollapse((prev) => !prev)}
     >
       {children}
     </TwoLineQuote>

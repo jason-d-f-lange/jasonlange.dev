@@ -21,91 +21,119 @@ const mockTestimonial = (): TestimonialItem => ({
 const mockTestimonials = (n: number = 3): TestimonialItem[] =>
   faker.helpers.multiple(mockTestimonial, { count: n });
 
-const getAvatar = (component: RenderResult, n: number) => {
-  // The elements in the DOM are in reverse order so the current/first is actually the last in the DOM
-  const avatars = component.getAllByRole('img', { name: /avatar/ });
-  return avatars[avatars.length - n - 1];
-};
+describe('avatar carousel', () => {
+  const getAvatar = (component: RenderResult, n: number) => {
+    // The elements in the DOM are in reverse order so the current/first is actually the last in the DOM
+    const avatars = component.getAllByRole('img', { name: /avatar/ });
+    return avatars[avatars.length - n - 1];
+  };
 
-const verifyTestimonialShown = (
-  component: RenderResult,
-  testimonial: TestimonialItem,
-) => {
-  const src = getAvatar(component, 0).getAttribute('src');
-  expect(src).toBe(testimonial.avatar);
+  const verifyTestimonialShown = (
+    component: RenderResult,
+    testimonial: TestimonialItem,
+  ) => {
+    const src = getAvatar(component, 0).getAttribute('src');
+    expect(src).toBe(`/avatars/${testimonial.avatar}`);
 
-  const titleLine = component.getByRole('paragraph').innerHTML;
-  expect(titleLine).toContain(testimonial.name);
-  expect(titleLine).toContain(testimonial.relationship);
+    const titleLine = component.getByRole('paragraph').innerHTML;
+    expect(titleLine).toContain(testimonial.name);
+    expect(titleLine).toContain(testimonial.relationship);
 
-  expect(component.getByRole('blockquote')).toHaveTextContent(
-    testimonial.quote,
-  );
-};
+    expect(component.getByRole('blockquote')).toHaveTextContent(
+      testimonial.quote,
+    );
+  };
 
-const moveNext = async (component: RenderResult) => {
-  const nextButton = component.getByRole('button', { name: /next/i });
-  await user.click(nextButton);
-};
+  const moveNext = async (component: RenderResult) => {
+    const nextButton = component.getByRole('button', { name: /next/i });
+    await user.click(nextButton);
+  };
 
-const movePrev = async (component: RenderResult) => {
-  const prevButton = component.getByRole('button', { name: /prev/i });
-  await user.click(prevButton);
-};
+  const movePrev = async (component: RenderResult) => {
+    const prevButton = component.getByRole('button', { name: /prev/i });
+    await user.click(prevButton);
+  };
 
-it('displays the first testimonial by default', () => {
-  const testimonials = mockTestimonials();
-  const component = render(<Testimonials testimonials={testimonials} />);
-  verifyTestimonialShown(component, testimonials[0]);
+  it('displays the first testimonial by default', () => {
+    const testimonials = mockTestimonials();
+    const component = render(<Testimonials testimonials={testimonials} />);
+    verifyTestimonialShown(component, testimonials[0]);
+  });
+
+  it('moves to next avatar when next button is clicked', async () => {
+    const testimonials = mockTestimonials();
+    const component = render(<Testimonials testimonials={testimonials} />);
+
+    await moveNext(component);
+    verifyTestimonialShown(component, testimonials[1]);
+
+    await moveNext(component);
+    verifyTestimonialShown(component, testimonials[2]);
+  });
+
+  it('moves to first avatar when next button is clicked while on the last avatar', async () => {
+    const testimonials = mockTestimonials(2);
+    const component = render(<Testimonials testimonials={testimonials} />);
+
+    await moveNext(component);
+    verifyTestimonialShown(component, testimonials[1]);
+
+    await moveNext(component);
+    verifyTestimonialShown(component, testimonials[0]);
+  });
+
+  it('moves to previous avatar when prev button is clicked', async () => {
+    const testimonials = mockTestimonials();
+    const component = render(<Testimonials testimonials={testimonials} />);
+
+    await moveNext(component);
+    verifyTestimonialShown(component, testimonials[1]);
+
+    await movePrev(component);
+    verifyTestimonialShown(component, testimonials[0]);
+  });
+
+  it('moves to last avatar when prev button is clicked while on the first avatar', async () => {
+    const testimonials = mockTestimonials();
+    const component = render(<Testimonials testimonials={testimonials} />);
+
+    await movePrev(component);
+    verifyTestimonialShown(component, testimonials[2]);
+  });
+
+  it('moves directly to avatar on click', async () => {
+    const testimonials = mockTestimonials();
+    const component = render(<Testimonials testimonials={testimonials} />);
+
+    const lastAvatar = getAvatar(component, 2);
+    await user.click(lastAvatar);
+
+    verifyTestimonialShown(component, testimonials[2]);
+  });
 });
 
-it('moves to next avatar when next button is clicked', async () => {
-  const testimonials = mockTestimonials();
-  const component = render(<Testimonials testimonials={testimonials} />);
+describe('quote', () => {
+  const isCollapsed = (quote: HTMLElement) =>
+    quote.getAttribute('data-test-collapse') === 'true';
 
-  await moveNext(component);
-  verifyTestimonialShown(component, testimonials[1]);
+  it('is collapsed by default', () => {
+    const component = render(
+      <Testimonials testimonials={[mockTestimonial()]} />,
+    );
+    const quote = component.getByRole('blockquote');
+    expect(isCollapsed(quote)).toBe(true);
+  });
 
-  await moveNext(component);
-  verifyTestimonialShown(component, testimonials[2]);
-});
+  it('toggles expansion when clicked', async () => {
+    const component = render(
+      <Testimonials testimonials={[mockTestimonial()]} />,
+    );
+    const quote = component.getByRole('blockquote');
 
-it('moves to first avatar when next button is clicked while on the last avatar', async () => {
-  const testimonials = mockTestimonials(2);
-  const component = render(<Testimonials testimonials={testimonials} />);
+    await user.click(quote);
+    expect(isCollapsed(quote)).toBe(false);
 
-  await moveNext(component);
-  verifyTestimonialShown(component, testimonials[1]);
-
-  await moveNext(component);
-  verifyTestimonialShown(component, testimonials[0]);
-});
-
-it('moves to previous avatar when prev button is clicked', async () => {
-  const testimonials = mockTestimonials();
-  const component = render(<Testimonials testimonials={testimonials} />);
-
-  await moveNext(component);
-  verifyTestimonialShown(component, testimonials[1]);
-
-  await movePrev(component);
-  verifyTestimonialShown(component, testimonials[0]);
-});
-
-it('moves to last avatar when prev button is clicked while on the first avatar', async () => {
-  const testimonials = mockTestimonials();
-  const component = render(<Testimonials testimonials={testimonials} />);
-
-  await movePrev(component);
-  verifyTestimonialShown(component, testimonials[2]);
-});
-
-it('moves directly to avatar on click', async () => {
-  const testimonials = mockTestimonials();
-  const component = render(<Testimonials testimonials={testimonials} />);
-
-  const lastAvatar = getAvatar(component, 2);
-  await user.click(lastAvatar);
-
-  verifyTestimonialShown(component, testimonials[2]);
+    await user.click(quote);
+    expect(isCollapsed(quote)).toBe(true);
+  });
 });
