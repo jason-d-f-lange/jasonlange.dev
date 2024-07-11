@@ -65,18 +65,22 @@ export default function Home() {
       >
         <About />
       </Section>
+
       <Section gridArea="experience">
         <Experience />
       </Section>
+
       <Section
         gridArea="testimonials"
         style={{ padding: 'var(--section-inner-padding)' }}
       >
         <Testimonials testimonials={testimonialItems} />
       </Section>
+
       <Section gridArea="skills">
         <Skills />
       </Section>
+
       {/* <span style={{ fontSize: 14, fontWeight: 'normal' }}>
           Built with Next.js and React, hosted on Vercel.
         </span> */}
