@@ -16,7 +16,7 @@ export const testimonialItems: TestimonialItem[] = faker.helpers.multiple(
     avatar: faker.image.avatarLegacy(),
     name: faker.person.fullName(),
     profileUrl: '',
-    relationship: faker.person.bio(),
+    relationship: 'Ex-teammate',
     quote: faker.lorem.sentences(2),
   }),
   { count: 5 },
