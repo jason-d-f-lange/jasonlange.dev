@@ -2,6 +2,7 @@
 
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
 import { TestimonialItem } from '../testimonial-items';
 import { NextButton, PrevButton } from './nav-buttons';
@@ -21,9 +22,7 @@ const AvatarGroup = styled.div({
   flexDirection: 'row-reverse',
 });
 
-const Avatar = styled.img({
-  width: avatarSize,
-  height: avatarSize,
+const Avatar = styled(Image)({
   borderRadius: '100%',
   cursor: 'pointer',
   position: 'relative',
@@ -98,6 +97,8 @@ export default function AvatarCarousel({ testimonials, onChange }: Props) {
               <Avatar
                 src={`/avatars/${testimonial.avatar}`}
                 alt={`avatar for ${testimonial.name}`}
+                width={avatarSize}
+                height={avatarSize}
                 onClick={() => handleAvatarClick(testimonial)}
               />
             </motion.div>
