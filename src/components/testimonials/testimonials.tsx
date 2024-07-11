@@ -29,6 +29,8 @@ export default function Testimonials({ testimonials }: Props) {
         style={{
           fontWeight: 'var(--font-weight-semibold)',
           color: 'var(--secondary-color)',
+          display: 'block',
+          width: 'fit-content',
         }}
       >
         <HorizontalStack alignItems="center">
