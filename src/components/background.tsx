@@ -1,8 +1,8 @@
 'use client';
 
+import { useMousePosition } from '@/utils/use-mouse-position';
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 const maskSize = 300;
 
@@ -30,23 +30,7 @@ const Mask = styled(motion.div)({
 });
 
 export default function Background() {
-  const deviceHasPointer =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(pointer: fine)').matches;
-
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const { x, y } = mousePosition;
-
-  useEffect(() => {
-    if (!deviceHasPointer) return;
-
-    const updateMousePosition = (e: MouseEvent) =>
-      setMousePosition({ x: e.clientX, y: e.clientY });
-
-    window.addEventListener('mousemove', updateMousePosition);
-
-    return () => window.removeEventListener('mousemove', updateMousePosition);
-  }, [deviceHasPointer]);
+  const { x, y } = useMousePosition();
 
   return (
     <>
