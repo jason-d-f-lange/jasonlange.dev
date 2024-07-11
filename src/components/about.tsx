@@ -26,6 +26,7 @@ export default function About() {
         <a
           href="https://www.linkedin.com/in/jason-d-f-lange/"
           target="_blank"
+          aria-label="LinkedIn profile"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +37,10 @@ export default function About() {
           </svg>
         </a>
 
-        <a href="mailto:placeholder">
+        <a
+          href="mailto:placeholder"
+          aria-label="email"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"
@@ -49,6 +53,7 @@ export default function About() {
         <a
           href="https://github.com/jason-d-f-lange"
           target="_blank"
+          aria-label="GitHub profile"
         >
           <svg
             width="98"
