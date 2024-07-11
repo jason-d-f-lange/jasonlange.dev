@@ -1,4 +1,4 @@
-export interface ResumeItem {
+export interface ExperienceItem {
   company: string;
   logo: string;
   role: string;
@@ -7,7 +7,7 @@ export interface ResumeItem {
   skills: string[];
 }
 
-export const resumeItems: ResumeItem[] = [
+export const experienceItems: ExperienceItem[] = [
   {
     company: 'Endava (formerly Lexicon)',
     logo: 'https://cdn.builder.io/api/v1/image/assets/TEMP/27fca8a018ab44a9304f052bf0a0dbfe51a9e10ab23e053e51a835ea394111bc?apiKey=869482d0b4614a09ba4477c956f855cb&',

@@ -1,15 +1,15 @@
 import { Stack } from '../layout/stack';
-import ResumeCard from './resume-card';
-import { resumeItems } from './resume-items';
+import ExperienceCard from './experience-card';
+import { experienceItems } from './experience-items';
 
-export default function Resume() {
+export default function Experience() {
   return (
     <Stack
       gap={24}
       style={{ padding: 'var(--section-inner-padding)' }}
     >
-      {resumeItems.map((item, index) => (
-        <ResumeCard
+      {experienceItems.map((item, index) => (
+        <ExperienceCard
           key={index}
           item={item}
         />

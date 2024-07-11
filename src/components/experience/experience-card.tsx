@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Spacer from '../layout/spacer';
 import { HorizontalStack, Stack } from '../layout/stack';
-import { ResumeItem } from './resume-items';
+import { ExperienceItem } from './experience-items';
 
 const Card = styled.article({
   width: '100%',
@@ -43,7 +43,7 @@ const Chip = styled.span({
   },
 });
 
-export default function ResumeCard({ item }: { item: ResumeItem }) {
+export default function ExperienceCard({ item }: { item: ExperienceItem }) {
   const { company, logo, role, timeframe, dotPoints, skills } = item;
 
   return (

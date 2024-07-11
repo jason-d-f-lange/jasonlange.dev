@@ -1,7 +1,7 @@
 'use client';
 
 import About from '@/components/about';
-import Resume from '@/components/resume/resume';
+import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { testimonialItems } from '@/components/testimonials/testimonial-items';
 import Testimonials from '@/components/testimonials/testimonials';
@@ -66,7 +66,7 @@ export default function Home() {
         <About />
       </Section>
       <Section gridArea="experience">
-        <Resume />
+        <Experience />
       </Section>
       <Section
         gridArea="testimonials"
