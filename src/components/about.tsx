@@ -4,7 +4,7 @@ import { HorizontalStack } from './layout/stack';
 
 const iconSize = 40;
 
-const Icons = styled(HorizontalStack)({
+const HorizontalIconStack = styled(HorizontalStack)({
   '& svg': {
     fill: 'var(--primary-color)',
     width: iconSize,
@@ -22,7 +22,7 @@ export default function About() {
       <h1>Jason Lange</h1>
       <h2>Senior Full-Stack Developer</h2>
       <Spacer height={20} />
-      <Icons>
+      <HorizontalIconStack alignItems="center">
         <a
           href="https://www.linkedin.com/in/jason-d-f-lange/"
           target="_blank"
@@ -56,8 +56,6 @@ export default function About() {
           aria-label="GitHub profile"
         >
           <svg
-            width="98"
-            height="96"
             viewBox="0 0 98 96"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -68,7 +66,7 @@ export default function About() {
             />
           </svg>
         </a>
-      </Icons>
+      </HorizontalIconStack>
     </>
   );
 }

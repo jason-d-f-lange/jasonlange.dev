@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import Image from 'next/image';
 import Spacer from '../layout/spacer';
 import { HorizontalStack, Stack } from '../layout/stack';
 import AdditionalInfo from './additional-info';
@@ -11,11 +12,10 @@ const Card = styled.article({
 
 const logoSize = 64;
 
-const Logo = styled.img({
+const Logo = styled(Image)({
   width: logoSize,
   height: logoSize,
   borderRadius: '100%',
-  boxShadow: '0px 1px 2px 0px #9d9d9d',
 });
 
 const Timeframe = styled.span({
@@ -70,6 +70,8 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
         <Logo
           src={`/logos/${logo}`}
           alt={`logo for ${company}`}
+          width={64}
+          height={64}
         />
       </HorizontalStack>
 
