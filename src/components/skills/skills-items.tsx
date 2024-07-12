@@ -60,6 +60,6 @@ export const skillCategories: SkillCategory[] = [
         />
       </svg>
     ),
-    skills: [['Oracle SQL', 'MySQL', 'MongoDB']],
+    skills: [['SQL', 'MongoDB']],
   },
 ];

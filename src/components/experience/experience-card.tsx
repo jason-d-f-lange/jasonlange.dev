@@ -57,7 +57,14 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
             <h3>{company}</h3>
             {companyInfo && <AdditionalInfo>{companyInfo}</AdditionalInfo>}
           </HorizontalStack>
-          <p style={{ fontWeight: 'var(--font-weight-semibold)' }}>{role}</p>
+          <p
+            style={{
+              fontWeight: 'var(--font-weight-semibold)',
+              whiteSpace: 'pre',
+            }}
+          >
+            {role}
+          </p>
         </Stack>
 
         <Logo
@@ -68,7 +75,7 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
 
       <Spacer height={8} />
 
-      <ul style={{ listStylePosition: 'inside' }}>
+      <ul style={{ listStylePosition: 'outside', marginLeft: 17 }}>
         {dotPoints.map((point, index) => (
           <li key={index}>{point}</li>
         ))}

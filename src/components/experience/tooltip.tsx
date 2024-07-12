@@ -27,7 +27,7 @@ const Popup = styled(motion.div)({
   textWrap: ['balance', 'pretty'],
 
   backgroundColor,
-  padding: '8px',
+  padding: '8px 4px',
   minWidth: '200px',
   maxWidth: '300px',
   borderRadius: 'var(--border-radius)',

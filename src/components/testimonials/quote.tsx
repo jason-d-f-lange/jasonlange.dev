@@ -8,7 +8,7 @@ const TwoLineQuote = styled.blockquote<{
   display: '-webkit-box',
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
-  WebkitLineClamp: collapse ? 2 : 'none',
+  WebkitLineClamp: collapse ? 3 : 'none',
   minHeight: 40,
 }));
 

@@ -29,7 +29,7 @@ export const testimonialItems: TestimonialItem[] = [
     profileUrl: 'https://www.linkedin.com/in/rochelle-akmeemana-92848462/',
     relationship: 'Ex-teammate',
     quote:
-      "I've had the pleasure of working with Jason on a couple of projects and have found him to be very knowledgeable about the technical aspects and he has always done his own investigations to make sure any changes that were done would have no resulting bugs. He is very good at explaining tech concepts to non tech team mates and have even helped the testing team when the need arose. He is a good team player and is also able to get on with his tasks by being resourceful and always questions things when in doubt. He is an asset to any organisation and I wish Jase the very best in his future endeavours!",
+      "I've had the pleasure of working with Jason on a couple of projects and have found him to be very knowledgeable about the technical aspects and he has always done his own investigations to make sure any changes that were done would have no resulting bugs. He is very good at explaining tech concepts to non tech team mates and has even helped the testing team when the need arose. He is a good team player and is also able to get on with his tasks by being resourceful and always questions things when in doubt. He is an asset to any organisation and I wish Jase the very best in his future endeavours!",
   },
   {
     avatar: 'darko_mihajlovic.jpg',
