@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import Spacer from '../layout/spacer';
 import { HorizontalStack, Stack } from '../layout/stack';
+import AdditionalInfo from './additional-info';
 import { ExperienceItem } from './experience-items';
 
 const Card = styled.article({
@@ -39,19 +40,23 @@ const Chip = styled.span({
   fontWeight: 'var(--font-weight-semibold)',
   '&:hover': {
     color: 'var(--secondary-color)',
-    background: 'white',
+    background: 'var(--primary-color)',
   },
 });
 
 export default function ExperienceCard({ item }: { item: ExperienceItem }) {
-  const { company, logo, role, timeframe, dotPoints, skills } = item;
+  const { company, companyInfo, logo, role, timeframe, dotPoints, skills } =
+    item;
 
   return (
     <Card>
       <HorizontalStack justifyContent="space-between">
         <Stack gap={2}>
           <Timeframe>{timeframe}</Timeframe>
-          <h3>{company}</h3>
+          <HorizontalStack alignItems="center">
+            <h3>{company}</h3>
+            {companyInfo && <AdditionalInfo>{companyInfo}</AdditionalInfo>}
+          </HorizontalStack>
           <p style={{ fontWeight: 'var(--font-weight-semibold)' }}>{role}</p>
         </Stack>
 

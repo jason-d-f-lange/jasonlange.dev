@@ -34,7 +34,9 @@ export default function Testimonials({ testimonials }: Props) {
         }}
       >
         <HorizontalStack alignItems="center">
-          {selectedTestimonial.name} • {selectedTestimonial.relationship}{' '}
+          <span role="paragraph">
+            {selectedTestimonial.name} • {selectedTestimonial.relationship}{' '}
+          </span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"

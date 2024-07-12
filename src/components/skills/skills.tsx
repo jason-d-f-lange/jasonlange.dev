@@ -15,8 +15,8 @@ const Row = styled.div({
   fontWeight: 'normal',
   margin: '-4px 0',
   '&:hover': {
-    background: 'white',
-    color: 'black',
+    background: 'var(--primary-color)',
+    color: 'var(--inverted-color)',
   },
 });
 

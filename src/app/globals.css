@@ -6,6 +6,7 @@
 
   --primary-color: white;
   --secondary-color: #39c270;
+  --inverted-color: black;
 
   --section-outer-padding: 60px;
   --section-inner-padding: 24px;
@@ -23,6 +24,10 @@ body {
   background: #27262d;
   font-family: Inter;
   font-size: 16px;
+}
+
+svg {
+  display: block;
 }
 
 a {

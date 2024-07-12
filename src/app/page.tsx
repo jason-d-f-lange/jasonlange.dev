@@ -50,7 +50,7 @@ interface SectionProps {
 
 const Section = styled.section<SectionProps>(
   ({ gridArea, hideBackground = false }) => ({
-    borderRadius: 10,
+    borderRadius: 'var(--border-radius)',
     background: hideBackground ? 'none' : 'rgba(52, 52, 52, 0.33)',
     gridArea,
   }),

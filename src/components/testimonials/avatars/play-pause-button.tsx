@@ -30,7 +30,7 @@ const Icon = styled(motion.div)({
   border: 'none',
   zIndex: 1,
   '& svg': {
-    fill: 'white',
+    fill: 'var(--primary-color)',
   },
 });
 

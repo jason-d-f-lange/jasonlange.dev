@@ -32,8 +32,15 @@ describe('avatar carousel', () => {
     component: RenderResult,
     testimonial: TestimonialItem,
   ) => {
-    const src = getAvatar(component, 0).getAttribute('src');
-    expect(src).toBe(`/avatars/${testimonial.avatar}`);
+    const nextImageSrc = getAvatar(component, 0).getAttribute('src');
+    expect(nextImageSrc).not.toBeNull();
+
+    const nextImageRegex = /^\/_next\/image\?url=(.+)&w=\d+&q=\d+$/;
+    const nextImageSrcMatch = nextImageSrc!.match(nextImageRegex);
+    expect(nextImageSrcMatch).not.toBeNull();
+    expect(nextImageSrcMatch![1]).toBe(
+      encodeURIComponent(`/avatars/${testimonial.avatar}`),
+    );
 
     const titleLine = component.getByRole('paragraph').innerHTML;
     expect(titleLine).toContain(testimonial.name);
