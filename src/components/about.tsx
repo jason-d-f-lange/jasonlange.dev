@@ -38,8 +38,8 @@ export default function About() {
         </a>
 
         <a
-          href="mailto:placeholder"
-          aria-label="email"
+          href="mailto:portfolio@jasonlange.dev?subject=Portfolio Enquiry"
+          aria-label="email portfolio@jasonlange.dev"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
