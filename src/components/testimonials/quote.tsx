@@ -25,7 +25,9 @@ export default function Quote({ children }: Props) {
       data-test-collapse={collapse}
       onClick={() => setCollapse((prev) => !prev)}
     >
+      <span style={{ marginRight: 2 }}>&ldquo;</span>
       {children}
+      <span style={{ marginLeft: 2 }}>&rdquo;</span>
     </TwoLineQuote>
   );
 }
