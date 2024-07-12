@@ -68,7 +68,7 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
         </Stack>
 
         <Logo
-          src={logo}
+          src={`/logos/${logo}`}
           alt={`logo for ${company}`}
         />
       </HorizontalStack>
