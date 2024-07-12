@@ -26,7 +26,7 @@ const Avatar = styled(Image)({
   borderRadius: '100%',
   cursor: 'pointer',
   position: 'relative',
-  outline: 'rgb(52, 52, 52) solid 3px',
+  outline: '#2B2A2F solid 3px',
 });
 
 interface Props {
