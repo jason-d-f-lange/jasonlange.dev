@@ -1,4 +1,5 @@
 import { Stack } from '../layout/stack';
+import RésuméLink from '../resume-link';
 import ExperienceCard from './experience-card';
 import { experienceItems } from './experience-items';
 
@@ -14,6 +15,10 @@ export default function Experience() {
           item={item}
         />
       ))}
+
+      <RésuméLink style={{ marginLeft: 'auto', textDecoration: 'underline' }}>
+        Full résumé
+      </RésuméLink>
     </Stack>
   );
 }
