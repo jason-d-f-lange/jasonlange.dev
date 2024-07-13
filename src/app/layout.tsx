@@ -9,7 +9,16 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'jasonlange.dev',
-  description: 'Jason Lange',
+  description: 'Jason Lange | Senior Full-Stack Developer',
+  openGraph: {
+    title: 'jasonlange.dev',
+    description: 'Jason Lange | Senior Full-Stack Developer',
+    url: 'https://jasonlange.dev',
+    siteName: 'jasonlange.dev',
+    images: '/og.png',
+    locale: 'en_AU',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
