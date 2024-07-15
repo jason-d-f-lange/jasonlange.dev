@@ -19,7 +19,7 @@ const Content = styled.main({
   padding: baseGap,
   gap: baseGap,
 
-  '@media (min-width: 1020px)': {
+  '@media (min-width: 1080px)': {
     display: 'block',
     columns: 2,
     padding: baseGap * 2,
