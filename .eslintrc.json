@@ -1,6 +1,24 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-     "react/self-closing-comp": "error"
-  }
+    "react/self-closing-comp": "error"
+  },
+  "overrides": [
+    {
+      // Enable eslint-plugin-testing-library only for test files
+      "files": [
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "extends": [
+        "plugin:testing-library/react",
+        "plugin:jest-dom/recommended"
+      ],
+      "rules": {
+        "testing-library/no-debugging-utils": "error",
+        "testing-library/prefer-explicit-assert": "error",
+        "testing-library/prefer-user-event": "error"
+      }
+    }
+  ]
 }
