@@ -9,6 +9,8 @@ import styled from '@emotion/styled';
 
 const baseGap = 20;
 
+const twoColumnBreakpoint = '@media (min-width: 1020px)';
+
 const Content = styled.main({
   margin: '0 auto',
   maxWidth: 1126,
@@ -18,7 +20,7 @@ const Content = styled.main({
   padding: baseGap,
   gap: baseGap,
 
-  '@media (min-width: 1020px)': {
+  [twoColumnBreakpoint]: {
     display: 'block',
     columns: 2,
     padding: baseGap * 2,
@@ -44,6 +46,21 @@ const Section = styled.section<SectionProps>(
   }),
 );
 
+const SectionHeading = styled.h2({
+  fontWeight: 'var(--font-weight-bold)',
+  fontSize: '1.5em',
+  marginBottom: 12,
+});
+
+const SiteInfo = styled.span({
+  fontSize: 14,
+  padding: '0 24px',
+  order: 1,
+  [twoColumnBreakpoint]: {
+    order: 0,
+  },
+});
+
 export default function Home() {
   return (
     <Content>
@@ -55,20 +72,21 @@ export default function Home() {
       </Section>
 
       <Section>
+        <SectionHeading>Testimonials</SectionHeading>
         <Testimonials testimonials={testimonialItems} />
       </Section>
 
       <Section>
+        <SectionHeading>Core skills</SectionHeading>
         <Skills />
       </Section>
 
+      <SiteInfo>Built with Next.js and React, hosted on Vercel.</SiteInfo>
+
       <Section>
+        <SectionHeading>Experience</SectionHeading>
         <Experience />
       </Section>
-
-      {/* <span style={{ fontSize: 14, fontWeight: 'normal' }}>
-          Built with Next.js and React, hosted on Vercel.
-        </span> */}
     </Content>
   );
 }
