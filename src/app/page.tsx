@@ -33,21 +33,28 @@ const Content = styled.main({
 
 interface SectionProps {
   hideBackground?: boolean;
+  padding?: React.CSSProperties['padding'];
 }
 
-const Section = styled.section<SectionProps>(({ hideBackground = false }) => ({
-  borderRadius: 'var(--border-radius)',
-  background: hideBackground ? 'none' : 'rgba(52, 52, 52, 0.33)',
-}));
+const Section = styled.section<SectionProps>(
+  ({ hideBackground = false, padding = 24 }) => ({
+    borderRadius: 'var(--border-radius)',
+    background: hideBackground ? 'none' : 'rgba(52, 52, 52, 0.33)',
+    padding,
+  }),
+);
 
 export default function Home() {
   return (
     <Content>
-      <Section hideBackground>
+      <Section
+        hideBackground
+        padding={0}
+      >
         <About />
       </Section>
 
-      <Section style={{ padding: 'var(--section-inner-padding)' }}>
+      <Section>
         <Testimonials testimonials={testimonialItems} />
       </Section>
 

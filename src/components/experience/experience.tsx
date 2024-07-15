@@ -4,10 +4,7 @@ import { experienceItems } from './experience-items';
 
 export default function Experience() {
   return (
-    <Stack
-      gap={24}
-      style={{ padding: 'var(--section-inner-padding)' }}
-    >
+    <Stack gap={24}>
       {experienceItems.map((item, index) => (
         <ExperienceCard
           key={index}
