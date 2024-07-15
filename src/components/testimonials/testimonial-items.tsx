@@ -21,7 +21,7 @@ export const testimonialItems: TestimonialItem[] = [
     profileUrl: 'https://www.linkedin.com/in/jake-bayer/',
     relationship: 'Ex-team lead',
     quote:
-      "Jason is an absolute gun who has a wealth experience across a range of domains and languages. He is a team player and one of the most conscientious engineers I've ever had the pleasure of working with! Look forward to working with him again in any capacity in future roles!",
+      "Jason is an absolute gun who has a wealth of experience across a range of domains and languages. He is a team player and one of the most conscientious engineers I've ever had the pleasure of working with! Look forward to working with him again in any capacity in future roles!",
   },
   {
     avatar: 'rochelle_akmeemana.jpg',
