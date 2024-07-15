@@ -14,6 +14,7 @@ const LeadDotPointDisplacer = styled.div({
   marginLeft: -13,
   [singleColumnBreakpoint]: {
     marginLeft: 0,
+    columnCount: 2,
   },
 });
 
