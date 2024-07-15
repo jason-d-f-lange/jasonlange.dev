@@ -22,7 +22,7 @@ const Logo = styled(Image)({
   position: 'absolute',
   right: 0,
   top: 0,
-  '@media (max-width: 480px)': {
+  '@media (max-width: 520px)': {
     display: 'none',
   },
 });
