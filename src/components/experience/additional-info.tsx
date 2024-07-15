@@ -8,6 +8,9 @@ interface Props {
 const Svg = styled.svg({
   width: 16,
   cursor: 'pointer',
+  display: 'inline-block',
+  margin: '0 6px',
+  verticalAlign: 'middle',
 });
 
 const Icon = () => {

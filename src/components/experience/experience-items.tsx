@@ -2,8 +2,11 @@ export interface ExperienceItem {
   company: string;
   companyInfo?: React.ReactNode;
   logo: string;
-  role: string;
-  timeframe: string;
+  roles: {
+    title: string;
+    endDate: Date;
+    startDate: Date;
+  }[];
   dotPoints: string[];
   skills: string[];
 }
@@ -21,8 +24,18 @@ export const experienceItems: ExperienceItem[] = [
       </a>
     ),
     logo: 'endava.png',
-    role: 'Senior Software Engineer\nSoftware Engineer (Mar 2022 - Sep 2022)',
-    timeframe: 'Mar 2022 - Jul 2024',
+    roles: [
+      {
+        title: 'Senior Software Engineer',
+        endDate: new Date(2024, 6),
+        startDate: new Date(2022, 8),
+      },
+      {
+        title: 'Software Engineer',
+        endDate: new Date(2022, 8),
+        startDate: new Date(2022, 2),
+      },
+    ],
     dotPoints: [
       'Designed and developed a content management system',
       'Extended a complex set of microservices to support illiquid assets',
@@ -49,8 +62,18 @@ export const experienceItems: ExperienceItem[] = [
   {
     company: 'Swinburne University',
     logo: 'swinburne.png',
-    role: 'Senior Software Engineer\nSoftware Engineer (Jan 2016 - Jan 2019)',
-    timeframe: 'Jan 2016 - Mar 2022',
+    roles: [
+      {
+        title: 'Senior Software Engineer',
+        endDate: new Date(2022, 2),
+        startDate: new Date(2019, 0),
+      },
+      {
+        title: 'Software Engineer',
+        endDate: new Date(2019, 0),
+        startDate: new Date(2016, 0),
+      },
+    ],
     dotPoints: [
       'Developed a check-in system for staff and students to comply with COVID-19 regulations',
       'Led a team of graduates in developing a mobile app',

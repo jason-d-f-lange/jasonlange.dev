@@ -9,6 +9,7 @@ interface Props {
 
 const Container = styled.div({
   position: 'relative',
+  display: 'inline',
 });
 
 const backgroundColor = 'var(--primary-color)';
@@ -21,8 +22,8 @@ const Popup = styled(motion.div)({
   zIndex: 1000,
 
   color: 'var(--inverted-color)',
-  fontSize: '14px',
   fontWeight: 'var(--font-weight-semibold)',
+  fontSize: '0.75rem',
   textAlign: 'center',
   textWrap: ['balance', 'pretty'],
 

@@ -10,14 +10,9 @@ const Heading = styled.h2({
 
 const Row = styled.div({
   width: '100%',
-  padding: '10px var(--section-inner-padding)',
+  padding: '0px var(--section-inner-padding)',
   whiteSpace: 'pre-wrap',
   fontWeight: 'normal',
-  margin: '-4px 0',
-  '&:hover': {
-    background: 'var(--primary-color)',
-    color: 'var(--inverted-color)',
-  },
 });
 
 export default function Skills() {

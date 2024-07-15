@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Spacer from '../layout/spacer';
-import { HorizontalStack, Stack } from '../layout/stack';
+import { Stack } from '../layout/stack';
 import AdditionalInfo from './additional-info';
 import { ExperienceItem } from './experience-items';
+import Roles from './roles';
 
 const Card = styled.article({
   width: '100%',
-  fontSize: 14,
+  position: 'relative',
 });
 
 const logoSize = 64;
@@ -16,10 +17,17 @@ const Logo = styled(Image)({
   width: logoSize,
   height: logoSize,
   borderRadius: '100%',
+  flexShrink: 0,
+  marginLeft: 16,
+  position: 'absolute',
+  right: 0,
+  top: 0,
+  '@media (max-width: 480px)': {
+    display: 'none',
+  },
 });
 
 const Timeframe = styled.span({
-  fontSize: 16,
   fontWeight: 'var(--font-weight-semibold)',
   color: 'var(--secondary-color)',
 });
@@ -36,48 +44,63 @@ const Chip = styled.span({
     'linear-gradient(180deg, rgba(57, 194, 112, 0.9) 0%, rgba(52, 180, 103, 0.9) 100%)',
   padding: '4px 12px',
   whiteSpace: 'nowrap',
-  fontSize: 12,
+  fontSize: '0.75rem',
   fontWeight: 'var(--font-weight-semibold)',
-  '&:hover': {
-    color: 'var(--secondary-color)',
-    background: 'var(--primary-color)',
+  '@media (hover: hover)': {
+    '&:hover': {
+      color: 'var(--secondary-color)',
+      background: 'var(--primary-color)',
+    },
   },
 });
 
 export default function ExperienceCard({ item }: { item: ExperienceItem }) {
-  const { company, companyInfo, logo, role, timeframe, dotPoints, skills } =
-    item;
+  const { company, companyInfo, logo, roles, dotPoints, skills } = item;
+
+  const dateFormatter = new Intl.DateTimeFormat('en-AU', {
+    month: 'short',
+    year: 'numeric',
+  });
+
+  const formatDate = (date: Date) => dateFormatter.format(date);
+
+  const timeframeStart = formatDate(roles.at(-1)!.startDate);
+  const timeframeEnd = formatDate(roles.at(0)!.endDate);
 
   return (
     <Card>
-      <HorizontalStack justifyContent="space-between">
-        <Stack gap={2}>
-          <Timeframe>{timeframe}</Timeframe>
-          <HorizontalStack alignItems="center">
-            <h3>{company}</h3>
-            {companyInfo && <AdditionalInfo>{companyInfo}</AdditionalInfo>}
-          </HorizontalStack>
-          <p
-            style={{
-              fontWeight: 'var(--font-weight-semibold)',
-              whiteSpace: 'pre',
-            }}
-          >
-            {role}
-          </p>
-        </Stack>
+      <Stack gap={2}>
+        <Timeframe>
+          {timeframeStart} - {timeframeEnd}
+        </Timeframe>
 
-        <Logo
-          src={`/logos/${logo}`}
-          alt={`logo for ${company}`}
-          width={64}
-          height={64}
+        <h3>
+          {company}
+          {companyInfo && <AdditionalInfo>{companyInfo}</AdditionalInfo>}
+        </h3>
+
+        <Roles
+          roles={roles}
+          formatDate={formatDate}
         />
-      </HorizontalStack>
+      </Stack>
+
+      <Logo
+        src={`/logos/${logo}`}
+        alt={`logo for ${company}`}
+        width={64}
+        height={64}
+      />
 
       <Spacer height={8} />
 
-      <ul style={{ listStylePosition: 'outside', marginLeft: 17 }}>
+      <ul
+        style={{
+          listStylePosition: 'outside',
+          marginLeft: 17,
+          fontSize: '0.9rem',
+        }}
+      >
         {dotPoints.map((point, index) => (
           <li key={index}>{point}</li>
         ))}
