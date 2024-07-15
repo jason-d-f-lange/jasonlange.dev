@@ -39,9 +39,10 @@ describe('avatar carousel', () => {
       encodeURIComponent(`/avatars/${testimonial.avatar}`),
     );
 
-    const titleLine = screen.getByRole('paragraph').innerHTML;
-    expect(titleLine).toContain(testimonial.name);
-    expect(titleLine).toContain(testimonial.relationship);
+    expect(screen.getByText(testimonial.name)).toBeInTheDocument();
+    expect(
+      screen.getByText(new RegExp(testimonial.relationship)),
+    ).toBeInTheDocument();
 
     expect(screen.getByRole('blockquote')).toHaveTextContent(testimonial.quote);
   };
