@@ -32,27 +32,22 @@ interface Props {
 }
 
 export default function Roles({ roles, formatDate }: Props) {
-  return roles.map((role, index) => {
+  return roles.map((role) => {
     const startDate = formatDate(role.startDate);
     const endDate = formatDate(role.endDate);
 
-    if (index === 0) return <Role key={role.title}>{role.title}</Role>;
-
     return (
       <Role key={role.title}>
-        <HorizontalStack gap={4}>
-          <TurnUpArrow />
-          <HorizontalStack
-            as="p"
-            gap={0}
-            flexWrap="wrap"
-            style={{ whiteSpace: 'pre' }}
-          >
-            {role.title}{' '}
-            <span>
-              ({startDate} - {endDate})
-            </span>
-          </HorizontalStack>
+        <HorizontalStack
+          as="p"
+          gap={0}
+          flexWrap="wrap"
+          style={{ whiteSpace: 'pre' }}
+        >
+          {`> ${role.title} `}
+          <span>
+            ({startDate} - {endDate})
+          </span>
         </HorizontalStack>
       </Role>
     );

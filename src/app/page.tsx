@@ -70,7 +70,7 @@ export default function Home() {
         <SectionHeading>
           Core skills
           <AdditionalInfo>
-            Just the core ones, there&rsquo;s some like C#/.NET or Node.js which
+            Just the core ones, there&rsquo;s some like C# and ASP.NET which
             didn&rsquo;t make the list
           </AdditionalInfo>
         </SectionHeading>

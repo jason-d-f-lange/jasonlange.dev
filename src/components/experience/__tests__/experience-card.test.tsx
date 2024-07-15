@@ -1,8 +1,8 @@
 import { faker } from '@faker-js/faker';
 import { render, screen } from '@testing-library/react';
+import { getByTextContent } from '../../../utils/test-utils';
 import ExperienceCard from '../experience-card';
 import { ExperienceItem } from '../experience-items';
-import { getByTextContent } from '../../../utils/test-utils';
 
 const mockExperienceItem = (
   overrides?: Partial<ExperienceItem>,
@@ -45,14 +45,9 @@ describe('dates', () => {
     expect(screen.getByText(/Mar 2020 - Dec 2099/i)).toBeInTheDocument();
   });
 
-  it('shows the timeframe for all roles except the most recent', () => {
+  it('shows the timeframe for each role', () => {
     const experienceItem = mockExperienceItem({
       roles: [
-        {
-          title: 'Omega Software Engineer',
-          endDate: new Date(2099, 11),
-          startDate: new Date(2024, 6),
-        },
         {
           title: 'Experienced Software Engineer',
           endDate: new Date(2024, 6),
@@ -68,14 +63,14 @@ describe('dates', () => {
 
     render(<ExperienceCard item={experienceItem} />);
 
-    expect(screen.getByText('Omega Software Engineer')).toBeInTheDocument();
-
     expect(
-      getByTextContent('Experienced Software Engineer (Mar 2022 - July 2024)'),
+      getByTextContent(
+        '> Experienced Software Engineer (Mar 2022 - July 2024)',
+      ),
     ).toBeInTheDocument();
 
     expect(
-      getByTextContent('Casual Software Engineer (Mar 2020 - Mar 2022)'),
+      getByTextContent('> Casual Software Engineer (Mar 2020 - Mar 2022)'),
     ).toBeInTheDocument();
   });
 });

@@ -31,7 +31,7 @@ export const experienceItems: ExperienceItem[] = [
     dotPoints: [
       'Prepared solution designs and estimates for new projects',
       'Modified complex networks of micro frontends and services',
-      'Created a content management system',
+      'Designed and implemented a content management system',
       'Developed a centralised dashboard for financial advisers',
       'Automated email sending processes',
       'Automated the generation of government compliance reports',
