@@ -1,6 +1,7 @@
 'use client';
 
 import About from '@/components/about';
+import AdditionalInfo from '@/components/additional-info';
 import Experience from '@/components/experience/experience';
 import Skills from '@/components/skills/skills';
 import { testimonialItems } from '@/components/testimonials/testimonial-items';
@@ -66,7 +67,13 @@ export default function Home() {
       </Section>
 
       <Section>
-        <SectionHeading>Core skills</SectionHeading>
+        <SectionHeading>
+          Core skills
+          <AdditionalInfo>
+            Just the core ones, there&rsquo;s some like C#/.NET or Node.js which
+            didn&rsquo;t make the list
+          </AdditionalInfo>
+        </SectionHeading>
         <Skills />
       </Section>
 

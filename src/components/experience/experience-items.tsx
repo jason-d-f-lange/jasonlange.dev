@@ -1,6 +1,6 @@
 export interface ExperienceItem {
   company: string;
-  companyInfo?: React.ReactNode;
+  companyInfo?: string;
   logo: string;
   roles: {
     title: string;
@@ -14,15 +14,7 @@ export interface ExperienceItem {
 export const experienceItems: ExperienceItem[] = [
   {
     company: 'Endava (formerly Lexicon)',
-    companyInfo: (
-      <a
-        href="https://investors.endava.com/news-events/press-releases/detail/60/endava-announces-the-acquisition-of-lexicon-australia"
-        target="_blank"
-        style={{ textDecoration: 'underline' }}
-      >
-        Lexicon was acquired by Endava in October 2022
-      </a>
-    ),
+    companyInfo: 'Lexicon was acquired by Endava in October 2022',
     logo: 'endava.png',
     roles: [
       {

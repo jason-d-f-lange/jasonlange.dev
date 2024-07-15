@@ -1,3 +1,4 @@
+import { getByTextContent } from '@/utils/test-utils';
 import { faker } from '@faker-js/faker';
 import { render, screen } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
@@ -40,9 +41,7 @@ describe('avatar carousel', () => {
     );
 
     expect(screen.getByText(testimonial.name)).toBeInTheDocument();
-    expect(
-      screen.getByText(new RegExp(testimonial.relationship)),
-    ).toBeInTheDocument();
+    expect(getByTextContent(testimonial.relationship)).toBeInTheDocument();
 
     expect(screen.getByRole('blockquote')).toHaveTextContent(testimonial.quote);
   };

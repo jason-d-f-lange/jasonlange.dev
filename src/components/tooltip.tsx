@@ -12,7 +12,7 @@ const Container = styled.div({
   display: 'inline',
 });
 
-const backgroundColor = 'var(--primary-color)';
+const backgroundColor = '#F4F5fA';
 
 const Popup = styled(motion.div)({
   position: 'absolute',
@@ -25,13 +25,15 @@ const Popup = styled(motion.div)({
   fontWeight: 'var(--font-weight-semibold)',
   fontSize: '0.75rem',
   textAlign: 'center',
-  textWrap: ['balance', 'pretty'],
+  textWrap: 'balance',
 
   backgroundColor,
   padding: '8px 4px',
   minWidth: '200px',
   maxWidth: '300px',
   borderRadius: 'var(--border-radius)',
+
+  boxShadow: '6px 6px 4px rgba(0, 0, 0, 0.4)',
 
   '::before': {
     content: '""',

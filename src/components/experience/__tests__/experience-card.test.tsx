@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 import { render, screen } from '@testing-library/react';
 import ExperienceCard from '../experience-card';
 import { ExperienceItem } from '../experience-items';
+import { getByTextContent } from '../../../utils/test-utils';
 
 const mockExperienceItem = (
   overrides?: Partial<ExperienceItem>,
@@ -17,18 +18,6 @@ const mockExperienceItem = (
   skills: faker.helpers.multiple(faker.company.buzzNoun),
   ...overrides,
 });
-
-// Source: https://stackoverflow.com/a/68429756/3894163
-const getByTextContent = (text: string) =>
-  screen.getByText((_, element: Element | null) => {
-    const hasText = (element: Element | null) => element?.textContent === text;
-    const elementHasText = hasText(element);
-    // eslint-disable-next-line testing-library/no-node-access
-    const childrenDontHaveText = Array.from(element?.children || []).every(
-      (child) => !hasText(child),
-    );
-    return elementHasText && childrenDontHaveText;
-  });
 
 describe('dates', () => {
   it('shows the total timeframe based on all roles', () => {

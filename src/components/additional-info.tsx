@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
+import { PropsWithChildren } from 'react';
 import Tooltip from './tooltip';
-
-interface Props {
-  children: React.ReactNode;
-}
 
 const Svg = styled.svg({
   width: 16,
@@ -28,7 +25,7 @@ const Icon = () => {
   );
 };
 
-export default function AdditionalInfo({ children }: Props) {
+export default function AdditionalInfo({ children }: PropsWithChildren) {
   return (
     <Tooltip content={children}>
       <Icon />

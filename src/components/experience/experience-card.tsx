@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import AdditionalInfo from '../additional-info';
 import Spacer from '../layout/spacer';
 import { Stack } from '../layout/stack';
-import AdditionalInfo from './additional-info';
 import { ExperienceItem } from './experience-items';
 import Roles from './roles';
 
