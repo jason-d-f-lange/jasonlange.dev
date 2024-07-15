@@ -9,8 +9,6 @@ import styled from '@emotion/styled';
 
 const baseGap = 20;
 
-const twoColumnBreakpoint = '@media (min-width: 1020px)';
-
 const Content = styled.main({
   margin: '0 auto',
   maxWidth: 1126,
@@ -20,7 +18,7 @@ const Content = styled.main({
   padding: baseGap,
   gap: baseGap,
 
-  [twoColumnBreakpoint]: {
+  '@media (min-width: 1020px)': {
     display: 'block',
     columns: 2,
     padding: baseGap * 2,
@@ -52,15 +50,6 @@ const SectionHeading = styled.h2({
   marginBottom: 12,
 });
 
-const SiteInfo = styled.span({
-  fontSize: 14,
-  padding: '0 24px',
-  order: 1,
-  [twoColumnBreakpoint]: {
-    order: 0,
-  },
-});
-
 export default function Home() {
   return (
     <Content>
@@ -81,11 +70,16 @@ export default function Home() {
         <Skills />
       </Section>
 
-      <SiteInfo>Built with Next.js and React, hosted on Vercel.</SiteInfo>
-
       <Section>
         <SectionHeading>Experience</SectionHeading>
         <Experience />
+      </Section>
+
+      <Section
+        hideBackground
+        style={{ fontSize: '0.85em', paddingTop: 0, paddingBottom: 0 }}
+      >
+        Built with Next.js and React, hosted on Vercel.
       </Section>
     </Content>
   );
