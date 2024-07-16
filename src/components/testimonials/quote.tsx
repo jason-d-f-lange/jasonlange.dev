@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 
-const TwoLineQuote = styled.blockquote<{
+const CollapsibleQuote = styled.blockquote<{
   collapse: boolean;
 }>(({ collapse }) => ({
   cursor: 'pointer',
@@ -20,7 +20,7 @@ export default function Quote({ children }: Props) {
   const [collapse, setCollapse] = useState(true);
 
   return (
-    <TwoLineQuote
+    <CollapsibleQuote
       collapse={collapse}
       data-test-collapse={collapse}
       onClick={() => setCollapse((prev) => !prev)}
@@ -28,6 +28,6 @@ export default function Quote({ children }: Props) {
       <span style={{ marginRight: 2 }}>&ldquo;</span>
       {children}
       <span style={{ marginLeft: 2 }}>&rdquo;</span>
-    </TwoLineQuote>
+    </CollapsibleQuote>
   );
 }
