@@ -1,7 +1,12 @@
 export interface ExperienceItem {
-  company: string;
-  companyInfo?: string;
-  logo: string;
+  company: {
+    name: string;
+    additionalInfo?: string;
+  };
+  logo: {
+    path: string;
+    background?: React.CSSProperties['background'];
+  };
   roles: {
     title: string;
     endDate: Date;
@@ -13,9 +18,11 @@ export interface ExperienceItem {
 
 export const experienceItems: ExperienceItem[] = [
   {
-    company: 'Endava (formerly Lexicon)',
-    companyInfo: 'Lexicon was acquired by Endava in October 2022',
-    logo: 'endava.png',
+    company: {
+      name: 'Endava (formerly Lexicon)',
+      additionalInfo: 'Lexicon was acquired by Endava in October 2022',
+    },
+    logo: { path: 'endava.svg', background: 'white' },
     roles: [
       {
         title: 'Senior Software Engineer',
@@ -51,8 +58,8 @@ export const experienceItems: ExperienceItem[] = [
     ],
   },
   {
-    company: 'Swinburne University',
-    logo: 'swinburne.png',
+    company: { name: 'Swinburne University' },
+    logo: { path: 'swinburne.svg', background: 'black' },
     roles: [
       {
         title: 'Senior Software Engineer',

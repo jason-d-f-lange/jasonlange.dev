@@ -1,12 +1,12 @@
 import { Stack } from '../layout/stack';
-import ExperienceCard from './experience-card';
+import Card from './card';
 import { experienceItems } from './experience-items';
 
 export default function Experience() {
   return (
     <Stack gap={24}>
       {experienceItems.map((item, index) => (
-        <ExperienceCard
+        <Card
           key={index}
           item={item}
         />

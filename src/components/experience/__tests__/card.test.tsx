@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { render, screen } from '@testing-library/react';
 import { getByTextContent } from '../../../utils/test-utils';
-import ExperienceCard from '../experience-card';
+import Card from '../card';
 import { ExperienceItem } from '../experience-items';
 
 const mockExperienceItem = (
@@ -41,7 +41,7 @@ describe('dates', () => {
       ],
     });
 
-    render(<ExperienceCard item={experienceItem} />);
+    render(<Card item={experienceItem} />);
     expect(screen.getByText(/Mar 2020 - Dec 2099/i)).toBeInTheDocument();
   });
 
@@ -61,7 +61,7 @@ describe('dates', () => {
       ],
     });
 
-    render(<ExperienceCard item={experienceItem} />);
+    render(<Card item={experienceItem} />);
 
     expect(
       getByTextContent(

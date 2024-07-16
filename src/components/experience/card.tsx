@@ -1,30 +1,14 @@
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import AdditionalInfo from '../additional-info';
 import Spacer from '../layout/spacer';
 import { Stack } from '../layout/stack';
 import { ExperienceItem } from './experience-items';
+import Logo from './logo';
 import Roles from './roles';
 
-const Card = styled.article({
+const Container = styled.article({
   width: '100%',
   position: 'relative',
-});
-
-const logoSize = 64;
-
-const Logo = styled(Image)({
-  width: logoSize,
-  height: logoSize,
-  borderRadius: '100%',
-  flexShrink: 0,
-  marginLeft: 16,
-  position: 'absolute',
-  right: 0,
-  top: 0,
-  '@media (max-width: 520px)': {
-    display: 'none',
-  },
 });
 
 const Timeframe = styled.span({
@@ -54,8 +38,8 @@ const Chip = styled.span({
   },
 });
 
-export default function ExperienceCard({ item }: { item: ExperienceItem }) {
-  const { company, companyInfo, logo, roles, dotPoints, skills } = item;
+export default function Card({ item }: { item: ExperienceItem }) {
+  const { company, logo, roles, dotPoints, skills } = item;
 
   const dateFormatter = new Intl.DateTimeFormat('en-AU', {
     month: 'short',
@@ -68,15 +52,17 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
   const timeframeEnd = formatDate(roles.at(0)!.endDate);
 
   return (
-    <Card>
+    <Container>
       <Stack gap={2}>
         <Timeframe>
           {timeframeStart} - {timeframeEnd}
         </Timeframe>
 
         <h3>
-          {company}
-          {companyInfo && <AdditionalInfo>{companyInfo}</AdditionalInfo>}
+          {company.name}
+          {company.additionalInfo && (
+            <AdditionalInfo>{company.additionalInfo}</AdditionalInfo>
+          )}
         </h3>
 
         <Roles
@@ -86,10 +72,8 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
       </Stack>
 
       <Logo
-        src={`/logos/${logo}`}
-        alt={`logo for ${company}`}
-        width={64}
-        height={64}
+        logo={logo}
+        company={company.name}
       />
 
       <Spacer height={8} />
@@ -113,6 +97,6 @@ export default function ExperienceCard({ item }: { item: ExperienceItem }) {
           <Chip key={skill}>{skill}</Chip>
         ))}
       </Skills>
-    </Card>
+    </Container>
   );
 }
