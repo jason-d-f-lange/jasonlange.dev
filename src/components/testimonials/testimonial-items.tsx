@@ -39,4 +39,12 @@ export const testimonialItems: TestimonialItem[] = [
     quote:
       "Working with Jason has been an absolute privilege. Not only is he a brilliant developer with exceptional technical skills, but his approach to tackling challenging tasks and problem-solving is truly inspiring. Jason handles tasks with ease, providing insightful analyses and effective solutions which have been essential to the projects we worked on together. He goes above and beyond to support other team members. Beyond his professional ability, Jason's warmth, friendliness, and personality make him an awesome friend and teammate.",
   },
+  {
+    avatar: 'sam_hainsworth.jpg',
+    name: 'Sam Hainsworth',
+    profileUrl: 'https://www.linkedin.com/in/samuel-hainsworth',
+    relationship: 'Ex-teammate',
+    quote:
+      'Jason is one of those rare gems who blends deep technical knowledge, exceptional communication and a team-first mindset. While working with him I was frequently impressed with his ability to balance these traits to get the best outcome for the team and client. You can rely on him to take the initiative and lean in when appropriate or to step back and support others when the situation calls for that.\n\nI can honestly say that I always felt reassured having Jason on my team and would be absolutely thrilled if we got the chance to work together again!',
+  },
 ];
