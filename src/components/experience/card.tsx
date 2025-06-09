@@ -49,7 +49,9 @@ export default function Card({ item }: { item: ExperienceItem }) {
   const formatDate = (date: Date) => dateFormatter.format(date);
 
   const timeframeStart = formatDate(roles.at(-1)!.startDate);
-  const timeframeEnd = formatDate(roles.at(0)!.endDate);
+  const timeframeEnd = roles.at(0)?.endDate
+    ? formatDate(roles.at(0)!.endDate!)
+    : 'Present';
 
   return (
     <Container>

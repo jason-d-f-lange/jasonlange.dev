@@ -15,7 +15,7 @@ interface Props {
 export default function Roles({ roles, formatDate }: Props) {
   return roles.map((role) => {
     const startDate = formatDate(role.startDate);
-    const endDate = formatDate(role.endDate);
+    const endDate = role.endDate ? formatDate(role.endDate) : 'Present';
 
     return (
       <Role key={role.title}>
@@ -26,9 +26,11 @@ export default function Roles({ roles, formatDate }: Props) {
           style={{ whiteSpace: 'pre' }}
         >
           {`> ${role.title} `}
-          <span>
-            ({startDate} - {endDate})
-          </span>
+          {roles.length > 1 && (
+            <span>
+              ({startDate} - {endDate})
+            </span>
+          )}
         </HorizontalStack>
       </Role>
     );

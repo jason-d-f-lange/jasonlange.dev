@@ -9,14 +9,42 @@ export interface ExperienceItem {
   };
   roles: {
     title: string;
-    endDate: Date;
+    endDate?: Date;
     startDate: Date;
   }[];
   dotPoints: string[];
   skills: string[];
 }
 
+const swinburne: Pick<ExperienceItem, 'company' | 'logo'> = {
+  company: { name: 'Swinburne University' },
+  logo: { path: 'swinburne.svg', background: 'black' },
+};
+
 export const experienceItems: ExperienceItem[] = [
+  {
+    ...swinburne,
+    roles: [
+      {
+        title: 'Integration Specialist',
+        startDate: new Date(2024, 11),
+      },
+    ],
+    dotPoints: [
+      'Facilitated Ways of Working initiatives',
+      'Championed improvements to code quality and documentation',
+      'Automated complex manual workflows including technical documentation',
+      'Developed Azure DevOps pipelines',
+      'Streamlined JIRA and Agile processes',
+    ],
+    skills: [
+      'Azure DevOps',
+      'NodeJS',
+      'TypeScript',
+      // 'Open API Schema',
+      'Mule 4',
+    ],
+  },
   {
     company: {
       name: 'Endava (formerly Lexicon)',
@@ -58,8 +86,7 @@ export const experienceItems: ExperienceItem[] = [
     ],
   },
   {
-    company: { name: 'Swinburne University' },
-    logo: { path: 'swinburne.svg', background: 'black' },
+    ...swinburne,
     roles: [
       {
         title: 'Senior Software Engineer',
