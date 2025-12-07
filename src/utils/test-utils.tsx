@@ -6,7 +6,6 @@ export const getByTextContent = (text: string) =>
   screen.getByText((_, element: Element | null) => {
     const hasText = (element: Element | null) => element?.textContent === text;
     const elementHasText = hasText(element);
-    // eslint-disable-next-line testing-library/no-node-access
     const childrenDontHaveText = Array.from(element?.children || []).every(
       (child) => !hasText(child),
     );

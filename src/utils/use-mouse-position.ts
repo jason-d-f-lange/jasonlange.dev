@@ -30,10 +30,12 @@ export const useMousePosition = () => {
 
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleMouseMove = useCallback(
-    throttle((e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    }, 16),
+    throttle(
+      (e: MouseEvent) => setMousePosition({ x: e.clientX, y: e.clientY }),
+      16,
+    ),
     [],
   );
 
@@ -43,7 +45,7 @@ export const useMousePosition = () => {
     window.addEventListener('mousemove', handleMouseMove);
 
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
+  }, [deviceHasPointer, handleMouseMove]);
 
   return mousePosition;
 };
